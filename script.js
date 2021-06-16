@@ -2,7 +2,6 @@
 // O click no botão de login dispara um alert com o texto "Olá, Tryber!", no caso de preenchimento correto dos dados.
 // 'tryber@teste.com' e a senha '123456;
 const form = document.querySelector('.trybewarts-login');
-const btn = document.querySelector('#login');
 
 function validateForm(event) {
 //   event.preventDefault();
