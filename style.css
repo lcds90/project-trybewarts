@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    background-color: rgb(50, 167, 145);
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .trybewarts-login {
+    display: flex;
+}
+
+.main {
+    display: flex;
+}
+
+#evaluation-form {
+    display:flex;
+    width: 675px;
+    flex-direction: column;
+}
+
+#trybewarts-forms-logo {
+    height: 500px;
+}
