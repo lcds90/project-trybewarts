@@ -1,10 +1,13 @@
-// O click no botão de login dispara um alert com o texto "Login ou senha inválidos", no caso de erro de preenchimento dos dados
-// O click no botão de login dispara um alert com o texto "Olá, Tryber!", no caso de preenchimento correto dos dados.
-// 'tryber@teste.com' e a senha '123456;
-const form = document.querySelector('.trybewarts-login');
+const formLogin = document.querySelector('.trybewarts-login');
+const checkbox = document.querySelector('#agreement');
+const btn = document.querySelector('#submit-btn');
 
-function validateForm(event) {
-//   event.preventDefault();
+function validateFormUser(event) {
+  if (event.target.checked) btn.removeAttribute('disabled');
+  else btn.setAttribute('disabled', true);
+}
+
+function validateFormLogin(event) {
   const username = event.target[0];
   const password = event.target[1];
   if (username.value !== 'tryber@teste.com' || password.value !== '123456') {
@@ -15,5 +18,7 @@ function validateForm(event) {
 }
 
 window.onload = () => {
-  form.addEventListener('submit', validateForm);
+  btn.setAttribute('disabled', true);
+  formLogin.addEventListener('submit', validateFormLogin);
+  checkbox.addEventListener('change', validateFormUser);
 };
