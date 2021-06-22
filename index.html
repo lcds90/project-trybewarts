@@ -22,15 +22,15 @@
         </form>
     </header>
     <main class="main">
-        <form action="" id="evaluation-form">
+        <form action="#" id="evaluation-form">
             <div>
-                <input type="text" id="input-name" placeholder="Nome">
-                <input type="text" id="input-lastname" placeholder="Sobrenome">
+                <input name="name" type="text" id="input-name" placeholder="Nome">
+                <input name="lastname" type="text" id="input-lastname" placeholder="Sobrenome">
             </div>
             <div>
-                <input type="email" id="input-email" placeholder="Email">
+                <input name="email" type="email" id="input-email" placeholder="Email">
                 <label for="house">Casa:</label>
-                <select id="house">
+                <select name="house" id="house">
                     <option id="gitnoria-house" value="Gitnória">Gitnória</option>
                     <option id="reactpuff-house" value="Reactpuff">Reactpuff</option>
                     <option id="corvinode-house" value="Corvinode">Corvinode</option>
@@ -51,63 +51,64 @@
                     </label>
                 </div>
                 <div id="studies">
-                    <label for="" id="label-content">Qual conteúdo você está com mais vontade de aprender?</label>
+                    <label id="label-content">Qual conteúdo você está com mais vontade de aprender?</label>
                     <label for="hofs">
-                        <input type="checkbox" value="HoFs" id="hofs">
+                        <input name="content" class="subject" type="checkbox" value="HoFs" id="hofs">
                         HoFs</label>
                     <label for="jest">
-                        <input type="checkbox" value="Jest" id="jest">
+                        <input name="content" class="subject" type="checkbox" value="Jest" id="jest">
                         Jest</label>
                     <label for="promises">
-                        <input type="checkbox" value="Promises" id="promises">
+                        <input name="content" class="subject" type="checkbox" value="Promises" id="promises">
                         Promises</label>
                     <label for="react">
-                        <input type="checkbox" value="React" id="react">
+                        <input name="content" class="subject" type="checkbox" value="React" id="react">
                         React</label>
                     <label for="sql">
-                        <input type="checkbox" value="SQL" id="sql">
+                        <input name="content" class="subject" type="checkbox" value="SQL" id="sql">
                         SQL</label>
                     <label for="python">
-                        <input type="checkbox" value="Python" id="python">
+                        <input name="content" class="subject" type="checkbox" value="Python" id="python">
                         Python</label>
                 </div>
             </div>
             <div>
                 <label id="label-rate">Como você avalia a Trybewarts?</label>
                 <label for="ratio1">
-                    <input id="ratio1" type="radio" name="rate" value="1">1
+                    <input class="ratios" id="ratio1" type="radio" name="rate" value="1">1
                 </label>
                 <label for="ratio2">
-                    <input id="ratio2" type="radio" name="rate" value="2">2
+                    <input class="ratios" id="ratio2" type="radio" name="rate" value="2">2
                 </label>
                 <label for="ratio3">
-                    <input id="ratio3" type="radio" name="rate" value="3">3
+                    <input class="ratios" id="ratio3" type="radio" name="rate" value="3">3
                 </label>
                 <label for="ratio4">
-                    <input id="ratio4" type="radio" name="rate" value="4">4
+                    <input class="ratios" id="ratio4" type="radio" name="rate" value="4">4
                 </label>
                 <label for="ratio5">
-                    <input id="ratio5" type="radio" name="rate" value="5">5
+                    <input class="ratios" id="ratio5" type="radio" name="rate" value="5">5
                 </label>
                 <label for="ratio6">
-                    <input id="ratio6" type="radio" name="rate" value="6">6
+                    <input class="ratios" id="ratio6" type="radio" name="rate" value="6">6
                 </label>
                 <label for="ratio7">
-                    <input id="ratio7" type="radio" name="rate" value="7">7
+                    <input class="ratios" id="ratio7" type="radio" name="rate" value="7">7
                 </label>
                 <label for="ratio8">
-                    <input id="ratio8" type="radio" name="rate" value="8">8
+                    <input class="ratios" id="ratio8" type="radio" name="rate" value="8">8
                 </label>
                 <label for="ratio9">
-                    <input id="ratio9" type="radio" name="rate" value="9">9
+                    <input class="ratios" id="ratio9" type="radio" name="rate" value="9">9
                 </label>
                 <label for="ratio10">
-                    <input id="ratio10" type="radio" name="rate" value="10">10
+                    <input class="ratios" id="ratio10" type="radio" name="rate" value="10">10
                 </label>
             </div>
             <div class="container-textarea">
                 <label for="textarea" class="textarea">Deixe seu comentário: </label>
-                <textarea id="textarea" maxlength="500" cols="30" rows="10"></textarea>
+                <textarea name="observations" style="resize: none" id="textarea" maxlength="500" cols="30" rows="10"></textarea>
+                <span id="counter"></span>
             </div>
             <div>
 
