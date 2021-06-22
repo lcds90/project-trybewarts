@@ -4,6 +4,7 @@ const checkbox = document.querySelector('#agreement');
 const btn = document.querySelector('#submit-btn');
 const textarea = document.querySelector('#textarea');
 const counter = document.querySelector('#counter');
+const house = document.querySelector('#house');
 
 function validateFormUser(event) {
   if (event.target.checked) btn.removeAttribute('disabled');
@@ -25,8 +26,14 @@ function checkNameFromInputs(inputs, type) {
     }
   }
   inputsChecked = inputsChecked.join(', ');
-  console.log(inputsChecked);
   return inputsChecked;
+}
+
+function checkColor(houseColor) {
+  formUser.style.backgroundColor = 'rgba(230, 83, 31, 0.5)';
+  if (houseColor === 'Reactpuff') formUser.style.backgroundColor = 'rgba(252, 218, 84, 0.5)';
+  if (houseColor === 'Corvinode') formUser.style.backgroundColor = 'rgba(93, 139, 208, 0.5)';
+  if (houseColor === 'Pytherina') formUser.style.backgroundColor = 'rgba(43, 158, 88, 0.5)';
 }
 
 function getInformation(event) {
@@ -34,11 +41,12 @@ function getInformation(event) {
   const name = document.querySelector('#input-name');
   const lastname = document.querySelector('#input-lastname');
   const email = document.querySelector('#input-email');
-  const house = document.querySelector('#house');
+  // const house = document.querySelector('#house');
   const inputs = document.querySelectorAll('input');
   const family = checkNameFromInputs(inputs, 'family');
   const materias = checkNameFromInputs(inputs, 'content');
   const rate = checkNameFromInputs(inputs, 'rate');
+  checkColor(house.value);
   formUser.innerHTML = '';
   formUser.innerHTML += (`Nome: ${name.value} ${lastname.value} <br>`);
   formUser.innerHTML += (`Email: ${email.value} <br>`);
@@ -62,8 +70,10 @@ function validateFormLogin(event) {
 window.onload = () => {
   counter.textContent = 500;
   btn.setAttribute('disabled', true);
+  checkColor(house.value);
   formLogin.addEventListener('submit', validateFormLogin);
   formUser.addEventListener('submit', getInformation);
   checkbox.addEventListener('change', validateFormUser);
   textarea.addEventListener('input', countTextArea);
+  house.addEventListener('change', (e) => checkColor(e.target.value));
 };

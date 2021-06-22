@@ -16,6 +16,7 @@ html {
 
 body {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -24,9 +25,9 @@ body {
   width: 100%;
   background-color: rgb(50, 167, 145);
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
   padding: 0 20px;
   box-shadow: 0 5px 5px rgba(50, 167, 145, 0.25);
 }
@@ -43,26 +44,30 @@ body {
 
 .header .trybewarts-login {
   display: flex;
+  flex-direction: column;
+  margin: 25px;
 }
 
-.header .trybewarts-login input {
+.header .trybewarts-login input, .header .trybewarts-login button {
   border: 0;
   border-radius: 5px;
-  margin: 0 2px;
+  margin: 5px 2px;
 }
 
 .main {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   background: url('/images/hogwarts.jpg');
-  background-size: 120% 120%;
+  background-size: 150% 50%;
+  background-repeat: no-repeat;
   animation: animateImage 35s ease 0s infinite alternate forwards;
 }
 
 #evaluation-form {
   display: flex;
-  width: 675px;
+  width: 100%;
   flex-direction: column;
   box-shadow: 0 10px 5px rgba(0, 0, 0, 0.25);
   padding: 15px;
@@ -70,10 +75,11 @@ body {
   background: rgba(225, 225, 225, 0.5);
 }
 
-#evaluation-form div input {
+#evaluation-form div input, #evaluation-form div textarea, #evaluation-form div select {
   border: 0.5px solid rgb(120, 120, 120);
   border-radius: 5px;
   margin: 5px;
+  padding: 5px;
 }
 
 #evaluation-form #input-name , #evaluation-form #input-lastname {
@@ -84,12 +90,31 @@ body {
   width: 100%;
 }
 
+.house-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  height:25px;
+}
+
 #house {
   width: 100%;
 }
 
+.border-bottom-div {
+  border-bottom: 2px rgba(225, 225, 225, 0.5) solid;
+}
+
 #evaluation-form div {
   display: flex;
+  padding: 0 5px;
+}
+
+#evaluation-form .ratio {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #container-family-studies {
@@ -100,6 +125,8 @@ body {
   display: flex;
   flex-direction: column;
   background: none;
+  justify-content: center;
+  align-items: center;
 }
 
 #evaluation-form #studies {
@@ -107,6 +134,32 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   background: none;
+  align-items: center;
+  justify-items: center;
+}
+
+#evaluation-form .container-textarea {
+  flex-direction: column;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#evaluation-form .container-textarea textarea {
+  width: 100%;
+}
+
+#evaluation-form .agreement-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#evaluation-form .agreement-container #agreement {
+  filter: hue-rotate(305deg);
+  width: initial;
+  height: initial;
+  transition: all 0.5s ease;
 }
 
 #label-content {
@@ -114,16 +167,41 @@ body {
 }
 
 #evaluation-form input:placeholder-shown {
-  padding: 5px;
+  text-align:center;
+}
+
+#evaluation-form #submit-btn {
+  width: 50%;
+  margin: 5px auto;
+  color: white;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  border: 0;
+  background-color: rgb(117, 117, 117);
+  border-radius: 25px;
+  transition: background-color .5s, color 1s, box-shadow 2s; 
+}
+
+#evaluation-form #submit-btn:disabled {
+  background-color:rgba(39, 39, 39, 0.25);
+  color:rgba(0, 117, 105, 0.25);
+  box-shadow: 0;
 }
 
 #trybewarts-forms-logo {
-  height: 500px;
+  width: 100%;
+  height: 200px;
+  filter: drop-shadow(2px 2px 5px rgba(20, 20, 20, 0.5) )
 }
 
 footer {
   width: 100%;
+  height:100%;
   text-align: center;
+  padding:5px;
+  background-color: rgb(20, 20, 20);
+  color: white;
+  border-top:rgb(50, 167, 145) 5px double;
 }
 
 @keyframes animateImage {
@@ -134,5 +212,52 @@ footer {
 
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@media screen and (min-width: 820px){
+  .header {
+    flex-direction: row;
+  }
+
+  .header .trybewarts-login {
+    flex-direction: row;
+    margin: 0;
+  }
+
+  .header .trybewarts-login button {
+    padding: 10px;
+    background: rgb(50, 167, 145);
+    border: 2px rgb(120, 120, 120) solid;
+    color:white;
+  }
+
+  .header .trybewarts-login input {
+    margin: 0 2px;
+  }
+
+  .header .trybewarts-login input:placeholder-shown {
+    text-align: center;
+  }
+  
+  .main {
+    flex-direction: row;
+    background-size: 120% 120%;
+  }
+
+  #evaluation-form {
+    display: flex;
+    width: 675px;
+    flex-direction: column;
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.25);
+    padding: 0 15px;
+    border-radius: 25px;
+    background: rgba(225, 225, 225, 0.5);
+    transition: background 2s ease;
+  }
+
+  #trybewarts-forms-logo {
+    width:initial;
+    height: 500px;
   }
 }

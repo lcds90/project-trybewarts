@@ -27,9 +27,9 @@
                 <input name="name" type="text" id="input-name" placeholder="Nome">
                 <input name="lastname" type="text" id="input-lastname" placeholder="Sobrenome">
             </div>
-            <div>
+            <div class="border-bottom-div">
                 <input name="email" type="email" id="input-email" placeholder="Email">
-                <label for="house">Casa:</label>
+                <label for="house" class="house-label"></label>
                 <select name="house" id="house">
                     <option id="gitnoria-house" value="Gitnória">Gitnória</option>
                     <option id="reactpuff-house" value="Reactpuff">Reactpuff</option>
@@ -37,7 +37,7 @@
                     <option id="pytherina-house" value="Pytherina">Pytherina</option>
                 </select>
             </div>
-            <div id="container-family-studies">
+            <div id="container-family-studies" class="border-bottom-div">
                 <div id="family">
                     <label id="label-family">Qual sua família?</label>
                     <label for="front">
@@ -72,7 +72,7 @@
                         Python</label>
                 </div>
             </div>
-            <div>
+            <div class="border-bottom-div ratio">
                 <label id="label-rate">Como você avalia a Trybewarts?</label>
                 <label for="ratio1">
                     <input class="ratios" id="ratio1" type="radio" name="rate" value="1">1
@@ -105,12 +105,12 @@
                     <input class="ratios" id="ratio10" type="radio" name="rate" value="10">10
                 </label>
             </div>
-            <div class="container-textarea">
+            <div class="container-textarea border-bottom-div">
                 <label for="textarea" class="textarea">Deixe seu comentário: </label>
                 <textarea name="observations" style="resize: none" id="textarea" maxlength="500" cols="30" rows="10"></textarea>
                 <span id="counter"></span>
             </div>
-            <div>
+            <div class="border-bottom-div agreement-container">
 
                 <label for="agreement" id="label-infos">Você concorda com o uso das informações acima?</label>
                 <input type="checkbox" id="agreement">
