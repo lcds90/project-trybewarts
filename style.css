@@ -67,7 +67,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: url('/images/castle-hogwarts.png');
+  background: url('images/castle-hogwarts.png');
   background-size: 150% 50%;
   background-repeat: no-repeat;
   transition: background 5s ease;
