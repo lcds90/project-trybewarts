@@ -5,6 +5,7 @@ const btn = document.querySelector('#submit-btn');
 const textarea = document.querySelector('#textarea');
 const counter = document.querySelector('#counter');
 const house = document.querySelector('#house');
+const inputs = document.querySelectorAll('input');
 
 function validateFormUser(event) {
   if (event.target.checked) btn.removeAttribute('disabled');
@@ -18,11 +19,11 @@ function countTextArea(event) {
   counter.textContent = rest;
 }
 
-function checkNameFromInputs(inputs, type) {
+function checkNameFromInputs(inputsReceived, type) {
   let inputsChecked = [];
-  for (let index = 0; index < inputs.length; index += 1) {
-    if (inputs[index].name === type && inputs[index].checked) {
-      inputsChecked.push(inputs[index].value);
+  for (let index = 0; index < inputsReceived.length; index += 1) {
+    if (inputsReceived[index].name === type && inputsReceived[index].checked) {
+      inputsChecked.push(inputsReceived[index].value);
     }
   }
   inputsChecked = inputsChecked.join(', ');
@@ -36,25 +37,45 @@ function checkColor(houseColor) {
   if (houseColor === 'Pytherina') formUser.style.backgroundColor = 'rgba(43, 158, 88, 0.5)';
 }
 
+function checkBackground(houseColor) {
+  const main = document.querySelector('.main');
+  main.style.background = 'url("/images/grifinoria.jpg")';
+  if (houseColor === 'Reactpuff') main.style.background = 'url("/images/lufa-lufa.jpg")';
+  if (houseColor === 'Corvinode') main.style.background = 'url("/images/corvinal.jpg")';
+  if (houseColor === 'Pytherina') main.style.background = 'url("/images/sonserina.jpg")';
+}
+
+function generateForm(user) {
+  const { name, lastname, email, family, materias, rate } = user;
+  const divGroup = document.querySelector('#trybewarts-header-title');
+  formUser.style.height = '50%';
+  formUser.style.padding = '10px';
+  formUser.innerHTML = '';
+  formUser.innerHTML += (`<span class='newForm'>Nome: ${name.value} ${lastname.value}</span>`);
+  formUser.innerHTML += (`<span class='newForm'>Email: ${email.value}</span>`);
+  formUser.innerHTML += (`<span class='newForm'>Casa: ${house.value}</span>`);
+  formUser.innerHTML += (`<span class='newForm'>Família: ${family}</span>`);
+  formUser.innerHTML += (`<span class='newForm'>Matérias: ${materias}</span>`);
+  formUser.innerHTML += (`<span class='newForm'>Avaliação: ${rate}</span>`);
+  formUser.innerHTML += (`<span class='newForm'>Observações: ${textarea.value}</span>`);
+  divGroup.id = '';
+  divGroup.className = 'animation-text';
+  divGroup.innerHTML = 'Trabalho em grupo feito por Leonardo Santos e Marcio Brenner';
+}
+
 function getInformation(event) {
   event.preventDefault();
-  const name = document.querySelector('#input-name');
-  const lastname = document.querySelector('#input-lastname');
-  const email = document.querySelector('#input-email');
-  // const house = document.querySelector('#house');
-  const inputs = document.querySelectorAll('input');
-  const family = checkNameFromInputs(inputs, 'family');
-  const materias = checkNameFromInputs(inputs, 'content');
-  const rate = checkNameFromInputs(inputs, 'rate');
+  const user = {
+    name: document.querySelector('#input-name'),
+    lastname: document.querySelector('#input-lastname'),
+    email: document.querySelector('#input-email'),
+    family: checkNameFromInputs(inputs, 'family'),
+    materias: checkNameFromInputs(inputs, 'content'),
+    rate: checkNameFromInputs(inputs, 'rate'),
+  };
   checkColor(house.value);
-  formUser.innerHTML = '';
-  formUser.innerHTML += (`Nome: ${name.value} ${lastname.value} <br>`);
-  formUser.innerHTML += (`Email: ${email.value} <br>`);
-  formUser.innerHTML += (`Casa: ${house.value} <br>`);
-  formUser.innerHTML += (`Família: ${family} <br>`);
-  formUser.innerHTML += (`Matérias: ${materias} <br>`);
-  formUser.innerHTML += (`Avaliação: ${rate} <br>`);
-  formUser.innerHTML += (`Observações: ${textarea.value} <br>`);
+  checkBackground(house.value);
+  generateForm(user);
 }
 
 function validateFormLogin(event) {
