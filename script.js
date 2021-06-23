@@ -39,10 +39,10 @@ function checkColor(houseColor) {
 
 function checkBackground(houseColor) {
   const main = document.querySelector('.main');
-  main.style.background = 'url("/images/grifinoria.jpg")';
-  if (houseColor === 'Reactpuff') main.style.background = 'url("/images/lufa-lufa.jpg")';
-  if (houseColor === 'Corvinode') main.style.background = 'url("/images/corvinal.jpg")';
-  if (houseColor === 'Pytherina') main.style.background = 'url("/images/sonserina.jpg")';
+  main.style.background = 'url("images/grifinoria.jpg")';
+  if (houseColor === 'Reactpuff') main.style.background = 'url("images/lufa-lufa.jpg")';
+  if (houseColor === 'Corvinode') main.style.background = 'url("images/corvinal.jpg")';
+  if (houseColor === 'Pytherina') main.style.background = 'url("images/sonserina.jpg")';
 }
 
 function generateForm(user) {
