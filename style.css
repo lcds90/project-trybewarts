@@ -11,7 +11,7 @@
 html {
   width: 100vw;
   height: 100%;
-  background: var(--background-color);
+  background: rgb(50, 167, 145);
 }
 
 body {
@@ -56,7 +56,8 @@ body {
   margin: 25px;
 }
 
-.header .trybewarts-login input , .header .trybewarts-login button {
+.header .trybewarts-login input,
+.header .trybewarts-login button {
   border: 0;
   border-radius: 5px;
   margin: 5px 2px;
@@ -67,11 +68,9 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: url('images/castle-hogwarts.png');
-  background-size: 150% 50%;
-  background-repeat: no-repeat;
-  transition: background 5s ease;
-  animation: animateImage 35s ease 0s infinite alternate forwards;
+  background: url('images/castle.png') 150% 50% no-repeat;
+  transition: background 2.5s ease-in-out;
+  animation: animateImage 35s ease infinite alternate forwards;
 }
 
 /* LINK: https://odamoura.com/2017/03/31/wallpaper-3-minha-casa-em-hogwarts/ */
@@ -87,6 +86,8 @@ body {
   border-radius: 25px;
   background: rgba(225, 225, 225, 0.5);
   transition: height 2s ease;
+  color: rgb(26, 26, 26);
+  font-weight: 500;
 }
 
 .transform-form {
@@ -100,14 +101,17 @@ body {
   border: 5px double rgba(0, 0, 0, 0.25);
 }
 
-#evaluation-form div input , #evaluation-form div textarea , #evaluation-form div select {
+#evaluation-form div input,
+#evaluation-form div textarea,
+#evaluation-form div select {
   border: 0.5px solid rgb(120, 120, 120);
   border-radius: 5px;
   margin: 5px;
   padding: 5px;
 }
 
-#evaluation-form #input-name , #evaluation-form #input-lastname {
+#evaluation-form #input-name,
+#evaluation-form #input-lastname {
   width: 100%;
 }
 
@@ -223,7 +227,7 @@ body {
 #trybewarts-forms-logo {
   width: 100%;
   height: 200px;
-  filter: drop-shadow(2px 2px 5px rgba(20, 20, 20, 0.5) );
+  filter: drop-shadow(2px 2px 5px rgba(20, 20, 20, 0.5));
 }
 
 footer {
@@ -236,8 +240,7 @@ footer {
   border-top: rgb(50, 167, 145) 5px double;
 }
 
-@keyframes animateImage {
-
+@keyframes animateHouse {
   0% {
     background-position: 100% 50%;
   }
@@ -247,8 +250,19 @@ footer {
   }
 }
 
-@media screen and ( min-width : 820px ) {
+@keyframes animateImage {
+  0% {
+    background-position: 50% 100%;
+    /* background-position: 100% 50%; */
+  }
 
+  100% {
+    background-position: 100% 100%;
+    /* background-position: 0% 50%; */
+  }
+}
+
+@media screen and (min-width: 820px) {
   .header {
     flex-direction: row;
   }
@@ -276,6 +290,7 @@ footer {
   .main {
     flex-direction: row;
     background-size: 120% 120%;
+    animation: animateImage 35s ease infinite alternate forwards;
   }
 
   #evaluation-form {

@@ -31,18 +31,20 @@ function checkNameFromInputs(inputsReceived, type) {
 }
 
 function checkColor(houseColor) {
-  formUser.style.backgroundColor = 'rgba(230, 83, 31, 0.5)';
-  if (houseColor === 'Reactpuff') formUser.style.backgroundColor = 'rgba(252, 218, 84, 0.5)';
-  if (houseColor === 'Corvinode') formUser.style.backgroundColor = 'rgba(93, 139, 208, 0.5)';
-  if (houseColor === 'Pytherina') formUser.style.backgroundColor = 'rgba(43, 158, 88, 0.5)';
+  formUser.style.backgroundColor = 'rgba(230, 83, 31, 0.85)';
+  if (houseColor === 'Reactpuff') formUser.style.backgroundColor = 'rgba(252, 218, 84, 0.65)';
+  if (houseColor === 'Corvinode') formUser.style.backgroundColor = 'rgba(93, 139, 208, 0.85)';
+  if (houseColor === 'Pytherina') formUser.style.backgroundColor = 'rgba(43, 158, 88, 0.85)';
 }
 
 function checkBackground(houseColor) {
   const main = document.querySelector('.main');
-  main.style.background = 'url("images/grifinoria.jpg")';
-  if (houseColor === 'Reactpuff') main.style.background = 'url("images/lufa-lufa.jpg")';
-  if (houseColor === 'Corvinode') main.style.background = 'url("images/corvinal.jpg")';
-  if (houseColor === 'Pytherina') main.style.background = 'url("images/sonserina.jpg")';
+  main.style.animation = "animateHouse 35s ease infinite alternate forwards"
+  main.style.background = 'url("/images/grifinoria.jpg")';
+  if (houseColor === 'Reactpuff') main.style.background = 'url("/images/lufa-lufa.jpg")';
+  if (houseColor === 'Corvinode') main.style.background = 'url("/images/corvinal.jpg")';
+  if (houseColor === 'Pytherina') main.style.background = 'url("/images/sonserina.jpg")';
+  main.style.backgroundSize = '70% 100%';
 }
 
 function generateForm(user) {
